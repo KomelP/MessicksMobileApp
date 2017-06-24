@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://messicks.com https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height">
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+        <!--<link rel="stylesheet" type="text/css" href="css/public.css">-->
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+        <link rel="stylesheet" href="css/messicks.css" />
+        <title>MessicksMobileAppTrial</title>
+    </head>
+    <body>
+
+        <div data-role="page" id="Home-page">
+            <div data-role="panel" data-display="overlay" id="mainPanel">
+                <div style="margin:-15px;">
+                    <ul data-role="listview" data-inset="true">
+                        <li data-role="list-divider" data-rel="close" class="ui-li-divider ui-bar-b">
+                            <a style="margin:-15px;" href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-right">Close</a>
+                        </li>
+                        <li>
+                            <a href="#Home-page">
+                                <div class="ui-select">Home</div>
+                            </a>
+                        </li>
+                        <li><a href="#Home-page"><div class="ui-select">Parts</div></a></li>
+                        <li><a href="#" id="usedEquip"><div class="ui-select">Used Equipments</div> </a></li>
+                        <li><a href="#contact-page">Contact Us</a></li>
+                        <li><a href="#location-page">Locations</a></li>
+                        <li><a href="#">Blogs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div data-role="header" class="header" data-position="fixed">
+                <a href="#mainPanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-icon-notext ui-icon-bars ui-btn-b">Menu</a>
+                <h4 id="app-title">Messick's Parts</h4>
+            </div>
+            <div role="main" class="ui-content" style="height:100%">
+                <div class="logo">
+                    <a title="Messick's Equipment" href="#Home-page"><img alt="Messick's Equipment" src="images/logo.png" /></a>
+                </div>
+                <div class="container">
+                    <div style="padding-top:50px; padding-bottom:50px;">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a"><div class="ui-bar"> <input id="partEquiry" type="button" data-theme="a" value="Part Enquiry" /></div></div>
+                            <div class="ui-block-a"><div class="ui-bar"><input id="partDiagrams" type="button" value="Part Diagrams" data-theme="b" /></div> </div>
+                            <!--<div class="ui-block-c"><button id="xyz" class="ui-shadow ui-btn ui-corner-all">MODEL SEARCH</button></div>-->
+                        </div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a"><div class="ui-bar"><input id="usedEquip" type="button" value="Used Equipments" data-theme="a" ></div></div>
+                            <div class="ui-block-a"><div class="ui-bar"><input id="usedEquip" type="button" value="Equipment Rental" data-theme="b" /></div></div>
+                        </div>
+                        <!--<div class="ui-grid-solo">
+                            <div class="ui-block-a"><div class="ui-bar"><a href="#" class="ui-shadow ui-btn ui-corner-all">CONTACT</a></div></div>
+                        </div>-->
+                    </div>
+                </div>
+             </div>
+            <footer data-role="footer">
+                <h4>© 2017 | Messick's. | <a data-role="listview" href="#contact-page">Contact Us</a></h4>
+            </footer>
+        </div>
+        <div data-role="page" id="contact-page">
+            <div role="main" class="ui-content">
+                This is my contact page
+            </div>
+        </div>
+        <!--<div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+            </div>
+        </div>-->
+        <!--<div data-role="page" id="weather-page">
+
+            <div data-role="header" class="header">
+                <h1 id="app-title">Weather App</h1>
+                <a href="/" class="ui-btn ui-btn-left ui-btn-corner-all ui-icon-home ui-btn-icon-notext" rel="external">Home</a>
+            </div>
+
+            <div role="main" class="ui-content">
+                <form>
+                    <label for="zip-code">Type your zip code:</label>
+                    <input id="zip-code-input" name="zip-code" placeholder="eg. 98001" required />
+                    <button id="get-weather-btn" data-role="button" data-icon="search">Find Weather</button>
+                </form>
+
+                <ul id="weather-data" data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow not-displayed">
+                    <li data-role="list-divider" id="title" class="ui-li-divider ui-bar-a"></li>
+                    <li><span id="summary"><span id="temperature"></span> F <img src="" /></span></li>
+                    <li>Wind: <span id="wind"></span> knots</li>
+                    <li>Humidity: <span id="humidity"></span> %</li>
+                    <li>Visibility: <span id="visibility"></span></li>
+                    <li>Sunrise: <span id="sunrise"></span></li>
+                    <li>Sunset: <span id="sunset"></span></li>
+                </ul>
+                <a id="goToDemo" data-role="button" data-theme="a" href="#">Go to Demo Page</a>
+
+
+                <a data-role="button" data-theme="B" href="#usedEquipments-page">Messicks Used equipments</a> 
+                <button id="getMessicksData" data-role="button" data-icon="search">Call Messicks API</button>
+                <img src="http://localhost:9597/used/recent#&gid=1&pid=1" alt="hello" />
+                <div id="messicksData">
+
+                </div>
+                <div id="error-msg" class="not-displayed">
+                </div>
+            </div>
+
+            <footer data-role="footer" data-position="fixed">
+                <h4>Visual Studio Tools for Cordova Demo</h4>
+            </footer>
+
+        </div>
+        <div data-role="page" id="usedEquipments-page">
+            <div data-role="header" class="header">
+                <h1 id="page-title">Used Equipments</h1>
+            </div>
+            <div role="main" class="ui-content">
+
+                <h2>Use inset listview for tabs</h2>
+                <div data-role="tabs">
+                    <ul data-role="listview" data-inset="true" data-theme="b" class="tablist-left">
+                        <li><a href="ajax-content-ignore.html" data-ajax="false">three</a></li>
+                        <li>
+                            <a href="#one" data-ajax="false">one</a>
+                            <div id="one" class="ui-body-d tablist-content">
+                                <h1>First tab contents</h1>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#two" data-ajax="false">two</a>
+                            <ul id="two" class="tablist-content" data-theme="a" data-role="listview" data-inset="true">
+                                <li><a href="#">Acura</a></li>
+                                <li><a href="#">Audi</a></li>
+                                <li><a href="#">BMW</a></li>
+                                <li><a href="#">Cadillac</a></li>
+                                <li><a href="#">Ferrari</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <h2>Please select one of the category</h2>
+                <div data-role="tabs">
+                    <ul id="mainTabList" data-role="listview" data-inset="true" class="tablist-bottom" data-theme="a"></ul>
+                </div>
+            </div>
+            <footer data-role="footer" data-position="fixed">
+                <h4>Messicks - Helping hand with your land</h4>
+            </footer>
+
+        </div>-->
+        <script src="scripts/jquery-1.8.0.min.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <!--<script src="scripts/weather.js"></script>-->
+
+    </body>
+</html>

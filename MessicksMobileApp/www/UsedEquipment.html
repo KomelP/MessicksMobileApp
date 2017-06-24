@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://messicks.com https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+   <!-- <link rel="stylesheet" type="text/css" href="css/public.css">-->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+    <link rel="stylesheet" href="css/messicks.css" />
+    <title>MessicksMobileAppTrial</title>
+    <title>Used Equipments</title>
+</head>
+<body>
+    <div data-role="page" id="tab-page">
+        <div data-role="header" class="header" style="padding-right:50px">
+            <a href="#mainPanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-home ui-btn-a">Home</a>
+            <h1 id="app-title">Used Equipments</h1>
+            <button class="ui-shadow ui-btn ui-corner-all ui-icon-search ui-btn-icon-notext ui-btn-inline" />
+        </div>
+        <div role="main" class="ui-content">
+            <div id="tab" data-role="collapsible-set"></div>
+        </div>
+        <footer data-role="footer">
+            <h4>© 2017 | Messick's. All rights reserved. | Contact Us</h4>
+        </footer>
+    </div>
+    <div data-role="page" id="category-Page">
+        <div data-role="header" class="header" style="padding-right:50px">
+            <a href="#mainPanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-icon-left ui-btn-icon-left ui-btn-a">Back</a>
+            <h1 id="app-title">Used Equipments</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <ul id="categoryList" data-role="listview" data-inset="true"></ul>
+        </div>
+        <footer data-role="footer" data-position="fixed">
+            <h4>© 2017 | Messick's. All rights reserved. | Contact Us</h4>
+        </footer>
+    </div>
+    <div data-role="page" id="unit-Page">
+        <div data-role="header" class="header" style="padding-right:50px">
+            <a href="#mainPanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-home ui-btn-a">Home</a>
+            <h1 id="app-title">Used Equipments</h1>
+        </div>
+        <div role="main" class="ui-content">
+            
+            <div id="unit"></div>
+            <div class="ui-corner-all custom-corners">
+                <div class="ui-bar ui-bar-a">
+                    <h3>Ask Us A Question</h3>
+                </div>
+                <div class="ui-body ui-body-a" id="ask-wrapper">
+                    <div class="ui-field-contain">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name" required data-val-required="Name is required!" value="">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email" placeholder="Email" data-val-required="Email is required!" data-val-email ="This is not a valid email!" required value="">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" name="phone" id="phone" placeholder="Phone Number" value="">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="que">Question</label>
+                        <textarea name="que" id="que" placeholder="Question" data-val-required="Question is required!" required value=""></textarea>
+                    </div>
+                    <div class="ui-field-contain">
+                        <button class="ui-corner-all" id="ask-btn-submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer data-role="footer" data-position="fixed">
+            <h4>© 2017 | Messick's. All rights reserved. | Contact Us</h4>
+        </footer>
+    </div>
+   
+    <script src="scripts/jquery-1.8.0.min.js"></script>
+    <script src="scripts/plugins/jquery-ui.min.js"></script>
+    <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+  
+    <script src="scripts/underscore.js" ></script>
+    <script src="scripts/backbone.js"></script>
+   <script src="scripts/$mess/$mess.validation.js"></script> 
+
+    <!--START TEMPLATES-->
+    <script type="text/template" id="tabHeader-template">
+        <div data-role="collapsible" data-inset="false" data-theme="b" data-content-theme="a">
+            <h2><%- header %></h2>
+            <ul class="tabListView" data-role="listview"><%= tabListTemplate %> </ul>
+        </div>  
+    </script>
+    <script type="text/template" id="tabList-template">
+        <li data-tabid="<%- tabId %>"><a href="#category-Page"><%- itemName %></a></li>
+    </script>
+    <script type="text/template" id="categoryList-template">
+        <li class="row">
+            <h3><a class="CategoryHead" data-unitid="<%- id %>" href="#unit-Page"><%- name %> - <%- price %></a> </h3>
+            <div class="photoswipe-wrapper col-sm-6">
+                <a href="http://messicks.com/services/UsedequipmentImage.ashx?filename=<%- picSource %>&thumbnail=false" >
+                    <img class="image-border m-top-5 m-right-5 used-equip-image-list" src="http://messicks.com/services/UsedequipmentImage.ashx?filename=<%- picSource %>&thumbnail=true" />
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <div><b>Status:</b> <%- status %></div>
+                <div><b>Store:</b> <%- store %></div>
+            </div>
+        </li>
+    </script>
+    <script type="text/template" id="unit-template">
+        <div class="m-left-10-sm-max">
+            <h2 data-unitid="<%- id %>">Used <%- name %> </h2>
+            
+            <div class="m-top-10 m-bottom-10" ><h4 class="text-success bolden"><%- price %></h4></div>
+            <p class="m-bottom-25" style="font-family:'Open Sans','Helvetica Neue', Helvetica, Arial, sans-serif;"><%- description %></p>
+           
+            <p>
+                <div class="m-bottom-5"><b>Status:</b> <%- status %></div>
+                <div class="m-bottom-5" ><b>Store:</b> <%- store %></div>
+                <div class="m-bpttom-5"><b>Tag:</b><span id="unitTag"><%- tag %></span> </div>
+            </p>
+            <div class="photoswipe-wrapper m-top-10 m-bottom-25 ">
+                <%= unitPicsTemp %>
+            </div>
+        </div>
+    </script>
+    <script type="text/template" id="unitPics-template">
+        <a href="http://messicks.com/services/UsedequipmentImage.ashx?filename=<%- picSource %>&thumbnail=false">
+            <img class="image-border m-top-5 m-right-5 used-equip-image-list" src="http://messicks.com/services/UsedequipmentImage.ashx?filename=<%- picSource %>&thumbnail=true" />
+        </a>
+    </script>
+    <!--END TEMPLATES-->
+      
+  
+    <script src="scripts/pages/UsedEquipment.js"></script>
+    <!--<script type="text/javascript">
+      
+    </script>-->
+
+</body>
+</html>
